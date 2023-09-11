@@ -1,0 +1,54 @@
+.navbar-collapse {
+    margin-top: 0px;
+}
+
+.navbar1-collapse {
+    margin-top: 0px;
+}
+
+.nav-item {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar {
+    background-color : white;
+}
+
+.navbar1  {
+	background-color: #FFEFEF;
+}
+
+.navbar .container{
+	margin-bottom : 0px;	
+}
+
+.navbar1 .nav-link {
+    color: black;
+}
+
+.navbar1 .nav-link:hover {
+    color: #848484;
+}
+
+.navbar1 .nav-link:hover{
+    background-color: #FCC8C8;
+}
+
+.dropdown-menu{
+	background-color: #FFEFEF;
+	width: 458.48px;
+	text-align: center;
+}
+
+.dropdown-item:hover{
+	background-color: #FCC8C8;
+} 
+
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+html{
+	margin-right: 60px;
+	margin-left: 60px;
+}

@@ -1,0 +1,72 @@
+.main1{
+	width: 250px;
+	height: auto;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+.main2{
+	width: 1300px;
+}
+
+.main1 img{
+	width: 289.5px;
+}
+.main3{
+	margin-right : 0px;
+	width: 350px;
+	height: auto;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+.row1{
+	height: 400px;
+	background-color: #e8e8e8;
+	margin-left : 0px;
+}
+.row2{
+	height: 468.5px;
+	background-color: #e8e8e8;
+	margin-left : 0px;
+}
+.main2{
+ 	border-top: 1px solid #000;  
+    border-bottom: 1px solid #000;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+.main2 hr{
+	border-width: 1px;
+	border-style: solid;	
+	border-color: black;
+	margin-bottom: 1px;
+}
+
+.main2 .row1 .carousel-inner img{
+	width: 1200px;
+	height: 400px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.btn1{
+	margin-left: 30px ;
+	margin-right : 80px;
+}
+.btn3{
+	margin-left: 30px;
+}
+
+.card{
+	width: 340px;
+}

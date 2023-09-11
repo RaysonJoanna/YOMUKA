@@ -1,0 +1,25 @@
+package com.yomuka.main;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/yomuka")
+public class MainWebController {
+	@GetMapping("/main")
+	public String hello() {
+		return "Main";
+		//localhost:8090/test/hello 호출 의미 >> WEB-INF/views/Hello.jsp
+	}
+	@GetMapping("/Login")
+	public String Login() {
+		
+	    return "Login";
+	}
+	
+	@GetMapping("/Join")
+	public String Join() {
+	    return "Join";
+	}
+}
