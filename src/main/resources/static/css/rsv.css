@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* datepicker */
+.input-group-addon, .input-group-text {
+  border-left: 0 none;
+  padding: 4px 9px 4px 9px;
+}
+
+.input-group-addon .glyphicon-calendar:before,
+.input-group-text .datePicker-calendar:before {
+  content: " ";
+  background: url(/images/rsv/calendar.png) center center no-repeat;
+  width: 18px;
+  height: 20px;
+  display: block;
+  overflow: hidden;
+}
