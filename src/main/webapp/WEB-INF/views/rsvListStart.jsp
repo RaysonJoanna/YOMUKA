@@ -20,6 +20,7 @@
 <header>  
 </header>
 <body>
+<jsp:include page="Header.jsp"></jsp:include>
 
 	<!-- 예약내용 입력 및 수정 -->
 	<div class="modal fade" id="reserveInput">
@@ -154,7 +155,7 @@
 	      </div>
 	      <div class="col-2 align-self-center text-center">  	
 	         <button type="button" class="btn btn-primary reserveInput" id="openModalBtn" 
-	  					value="0$#$#$#$#$#testid01">
+	  					value="0$#$#$#$#$#${loggedUser.memberid}">
 	  			  예약등록
 	  			 </button>
 	      </div>
@@ -248,5 +249,6 @@
 		  </ul>
 		</nav>
 	</div>	
+<jsp:include page="Footer.jsp"></jsp:include>	
 </body>
 </html>
