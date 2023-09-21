@@ -91,7 +91,7 @@ public class Paging {
 			pageno = pagestart;						//조회대상 페이지 변경
 			offset = (pageno-1) * limit ;			
 		}else if(nPage2.equals("n2")) {					//마지막 페이지로 이동
-			pageend = (int)Math.ceil(totalCount/limit);	//마지막 페이지				
+			pageend = (int)Math.floor((totalCount+limit-1)/limit);	//마지막 페이지. 정수형 계산에서 올림 계산 필요				
 			pagestart = (int)(Math.floor((pageend-1)/pagelimit) * pagelimit + 1);    	
 			pageno = pageend;						//조회대상 페이지 변경
 			offset = (pageno-1) * limit ;			
@@ -103,12 +103,14 @@ public class Paging {
 		}
 		
 		//페이징
-		int pageCount = (int)Math.ceil(totalCount/limit)-pagestart;
+		int pageCount = (int)Math.floor((totalCount+limit-1)/limit)-pagestart;	//1개가 있는 경우 1페이지 표시. 정수형 계산에서 올림 계산 구현	
+		
 		if(pageCount < pagelimit) {
 			pageend = pagestart + pageCount;		//10 페이지 이하가 있는 경우 해당 페이지 까지만 표시
 			hasNext = false;
+			System.out.println("### pageend : " + pageend);
 		}else {
-			pageend = pagestart + pagelimit - 1;	//마지막 페이지가 한번에 표시되는 페이지 이하인 경우
+			pageend = pagestart + pagelimit - 1;	//마지막 페이지가 한번에 표시되는 페이지 이상인 경우
 			hasNext = true;
 		}
 		if(pageno <= pagelimit)						//11페이지 이상은 이전 페이지 표시 활성화
