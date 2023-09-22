@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 부트스트랩5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link href="../css/pet_mgr.css" rel="stylesheet">
+    <title>YOMUKA</title>
+</head>
+<body>
+    <!-- 반려동물 상세 정보 입력 -->
+    <div class="container col-8">
+        <!-- 반려동물 프로필 사진 -->
+        <div class="row justify-content-center mt-5">
+            <img class="img-thumbnail img-fluid rounded-circle" src="../img/catmorae.jpg" alt="addPetDetail" style="width: 20rem; height: 20rem;">
+        </div>
+        <form class="mt-5" action="yomuka/petc">
+            <!-- 반려동물 이름/나이 입력칸 -->
+            <div class="row justify-content-center gap-5">
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">이름</span>
+                        <input type="text" name="petName" class="form-control">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">나이</span>
+                        <input type="text" name="age" class="form-control">
+                        <select class="form-select" name="yearMonth" aria-label="Default select example" style="text-align-last: end;">
+                            <option selected>살</option>
+                            <option value="month">개월</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- 반려동물 몸무게/중성화여부 입력칸 -->
+            <div class="row justify-content-center gap-5 mt-5">
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">몸무게</span>
+                        <input type="text" class="form-control" name="petWeight" placeholder="소수점 두자리까지(kg)" >
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">중성화</span>
+                        <div class="my-auto form-control">
+                            <div class="form-check d-inline-block ms-3">
+                                <input class="form-check-input " type="radio" name="neu" id="flexRadioDefault" checked>
+                                <label class="form-check-label" for="flexRadioDefault">
+                                했어요
+                                </label>
+                            </div>
+                            <div class="form-check d-inline-block ms-3">
+                                <input class="form-check-input" type="radio" name="neu" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                안했어요
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 반려동물 주요 질병여부/품종 입력칸 -->
+            <div class="row justify-content-center gap-5 mt-5">
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">주요질병</span>
+                        <select class="form-select" name="diesease" aria-label="Default select example" style="text-align-last: center;">
+                            <option value="none" selected>없음</option>
+                            <option value="joint">관절</option>
+                            <option value="kidney">신장</option>
+                            <option value="heart">심장</option>
+                            <option value="urinary">비뇨기</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">품종</span>
+                        <select class="form-select" name="breed" aria-label="Default select example" style="text-align-last: center;">
+                            <option value="none" selected>모름</option>
+                            <option value="korean">코리안 숏헤어</option>
+                            <option value="american">아메리칸 숏헤어</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="mx-auto d-flex justify-content-center">
+                    <button id="submitBtn" type="submit" class="mx-auto col-3" >등록</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

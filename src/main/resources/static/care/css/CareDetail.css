@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.custom-div {
+	margin-top: 30px
+}
+
+.container{
+  display: flex;
+}
+
+.pointBoard {    
+	margin: 20px 10px 20px 10px;
+	float: right;
+	background-color: #FFEFEF;
+	border-radius: 20px;
+}
+
+.PointList{
+	margin: 20px;
+}
+
+.memberInfo {
+	margin: 20px 20px 20px 40px;
+	width:25%; 
+	height:500px;
+	background-color: #FFEFEF;
+	float:left;
+	border-radius: 20px;
+}
+
+.pagination {
+	float:center;
+}
+/*
+.right {
+	margin: 20px 20px 20px 20px;
+}
+*/
+.supplement {
+	margin: 20px 20px 20px 40px;
+	padding: 20px;
+	width:700px; 
+	height:200px;
+	background-color: #FFEFEF;
+	float:left;
+	border-radius: 20px;
+}
+
+.supplement h2, p{
+	text-align: center;
+}
+
+.randomRecommend {
+	margin: 20px 20px 20px 40px;
+	width: 40%; 
+	height:250px;
+	background-color: #FFEFEF;
+	float:left;
+	border-radius: 20px;
+}
+
+/*  */
+.row.right-bottom-right {
+	margin: 20px 20px 20px 20px;
+	width: 40%; 
+	height:250px;
+    background-color: #FFEFEF; /* 배경색 추가 */
+    padding: 20px; /* 여백 추가 */
+    border-radius: 20px; /* 모서리 둥글게 만들기 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 파일 입력 필드 스타일 조정 */
+.row.right-bottom-right input[type="file"] {
+    margin: 10px 0; /* 파일 입력 필드 위아래 여백 조정 */
+}
+
+/* 버튼 스타일 조정 */
+.row.right-bottom-right button {
+    margin: 5px; /* 버튼 간격 조정 */
+    background-color: #FCC8C8; /* 버튼 배경색 */
+    color: black; /* 버튼 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 만들기 */
+    padding: 10px 20px; /* 버튼 내용 여백 조정 */
+    cursor: pointer; /* 포인터 커서 표시 */
+}
+
+.row.right-bottom-right button:hover {
+    background-color: #FCC8C8; /* 호버 시 배경색 변경 */
+}
+
+
+
+ 

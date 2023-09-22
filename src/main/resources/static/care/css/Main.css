@@ -1,0 +1,25 @@
+.main1{
+	margin-left : 60px;
+	width: 320px;
+	height: auto;
+}
+
+.p-2{
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+.main3{
+	margin-right : 60px;
+	width: 320px;
+	height: auto;
+}
+
+.custom-border {
+    border-bottom: 2px solid black;
+}
+
+.main2{
+    overflow: hidden; 
+}

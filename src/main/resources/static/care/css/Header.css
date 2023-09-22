@@ -1,0 +1,42 @@
+.navbar-collapse {
+    margin-top: 0px;
+}
+
+.navbar1-collapse {
+    margin-top: 0px;
+}
+
+.nav-item {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar {
+    background-color : white;
+}
+
+.navbar1 {
+	background-color: #FFEFEF;
+	margin-left:60px;
+	margin-right: 60px;
+}
+
+.navbar .container{
+	margin-bottom : 0px;	
+}
+
+.navbar1 .nav-link {
+    color: black;
+}
+
+.navbar1 .nav-link:hover {
+    color: #848484;
+}
+
+.navbar1 .nav-link:hover {
+    background-color: #FCC8C8;
+}
+
+#asd {
+	color: #848484;
+}
