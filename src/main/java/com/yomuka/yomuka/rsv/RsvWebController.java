@@ -1,6 +1,6 @@
-package com.yomuka.rsv;
+package com.yomuka.yomuka.rsv;
 
-import com.yomuka.main.*;
+import com.yomuka.yomuka.main.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yomuka.main.Member;
+import com.yomuka.yomuka.main.DTO.Member;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("yomuka/rsv")

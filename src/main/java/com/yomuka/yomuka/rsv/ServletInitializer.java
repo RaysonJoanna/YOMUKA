@@ -1,4 +1,4 @@
-package com.yomuka.rsv;
+package com.yomuka.yomuka.rsv;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

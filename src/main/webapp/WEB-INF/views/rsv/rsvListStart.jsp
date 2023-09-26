@@ -20,7 +20,7 @@
 <header>  
 </header>
 <body>
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="../main/Header.jsp"></jsp:include>
 
 	<!-- 예약내용 입력 및 수정 -->
 	<div class="modal fade" id="reserveInput">
@@ -249,6 +249,6 @@
 		  </ul>
 		</nav>
 	</div>	
-<jsp:include page="Footer.jsp"></jsp:include>	
+<jsp:include page="../main/Footer.jsp"></jsp:include>	
 </body>
 </html>

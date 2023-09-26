@@ -103,9 +103,8 @@
                 <div class="col-4">
                     <div class="input-group">
                        <span class="input-group-text">주요질병</span>
-                        <c:set var="pet" value="${pet}"/>
                         <c:choose>
-                            <c:when test="${pet.kind != 'other'}">
+                            <c:when test="${kind != 'other'}">
                                 <select class="form-select" id="diesease" name="diesease" aria-label="Default select example" style="text-align-last: center;">
                                     <option value="none" selected>없음</option>
                                     <c:forEach items="${dieseaseList}" var="diesease">

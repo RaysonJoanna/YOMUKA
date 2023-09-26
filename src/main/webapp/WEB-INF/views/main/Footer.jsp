@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="/main/css/Footer.css">
-</head>
-<body>
 <footer class="footer">
 <hr>
 	<div class="container text-center d-flex align-items-center">
@@ -20,6 +14,4 @@
        	    </p>
         </div>
     </div>
-    </footer>
-</body>
-</html>
+</footer>

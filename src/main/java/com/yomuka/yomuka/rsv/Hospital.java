@@ -1,4 +1,4 @@
-package com.yomuka.rsv;
+package com.yomuka.yomuka.rsv;
 
 import java.util.Date;
 

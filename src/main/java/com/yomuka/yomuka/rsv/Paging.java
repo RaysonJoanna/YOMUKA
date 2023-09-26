@@ -1,4 +1,4 @@
-package com.yomuka.rsv;
+package com.yomuka.yomuka.rsv;
 
 public class Paging {
 	private int totalCount;

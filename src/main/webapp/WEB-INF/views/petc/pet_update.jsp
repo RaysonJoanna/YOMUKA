@@ -28,21 +28,7 @@
                img.setAttribute("src", event.target.result);
            };
            reader.readAsDataURL(event.target.files[0]);
-       }
-       
-      function submitUpdate(event){
-    	  console.log($('#petAgeUnit').val());
-    	  console.log($('#petAge').val());
-    	  
-    	  if($('#petAgeUnit').val() == "개월"){
-    		  if($('#petAge').val() >='12'){
-    			  alert("12개월 이상은 n살로 입력해주세요");
-    			  $('#petAgeUnit').focus();
-    			  return false;
-    		  }
-    	  }
-    	   $('#update').submit();
-      }
+       }  
      
        $(function(){
 			//나이 단위 이전 데이터 반영
@@ -50,9 +36,8 @@
 	   		//중성화 여부 이전 데이터 반영
 	   		$('input[name="petNeu"][value="${pet.petNeu}"]').prop('checked', true);
        });
-
-
     </script>
+  	<script type="text/javascript" src="/petc/js/validation.js"></script>
 </head>
 <body>
 	<jsp:include page="../main/Header.jsp" />
@@ -155,7 +140,7 @@
             <div class="row justify-content-center mt-5">
                 <div class="mx-auto d-flex justify-content-between gap-5 col-7">
                     <button id="submitBtn" type="button" class="mx-auto col" onClick="submitDel()">삭제</button>
-                    <button id="submitBtn" type="button" class="mx-auto col" onclick="submitUpdate(event)">수정</button>
+                    <button id="submitBtn" type="button" class="mx-auto col" onclick="validatePetInfo()">수정</button>
                 </div>
             </div>
         </form>
@@ -172,6 +157,10 @@
                history.back();
             }
          }
+
+   		let inputName = $('#petName');
+		let allPetName = '${allPetName}';
+		let petNameList = allPetName.split(',');
     </script>
 </body>
 </html>

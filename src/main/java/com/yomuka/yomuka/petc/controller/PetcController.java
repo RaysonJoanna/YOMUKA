@@ -18,9 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//http://localhost:8085/yomuka/petc/first
 @RequestMapping("/yomuka/petc")
-@SessionAttributes("memberid")
 public class PetcController {
     final PetcService petS;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -73,7 +71,7 @@ public class PetcController {
     @PostMapping("/add")
     public String regPet2(Pet pet,
                           @RequestParam("file") MultipartFile file,
-                          @SessionAttribute String memberid, Model m) {
+                          @SessionAttribute String memberid, Model m) throws SQLException {
 
     	String kind = pet.getKind();
     	pet.setmemberid(memberid);
@@ -87,14 +85,15 @@ public class PetcController {
 	    		}
 			}
             
-
             petS.addPetInfo(pet, kind);
 
         } catch (Exception e) {
             e.printStackTrace();
             logger.info("반려동물 등록 실패");
         }
-
+        
+        int point = petS.addPoint(memberid); // 등록 포인트 적립
+        
         List<Pet> petList = null;   // 전체 리스트
 
         try{
@@ -102,7 +101,9 @@ public class PetcController {
         } catch(Exception e){
             e.printStackTrace();
         }
-        
+                
+        m.addAttribute("addS","success");
+        m.addAttribute("memberid",memberid);
         m.addAttribute("petList", petList);
 
         return "/petc/pet_mgr_main";
@@ -167,7 +168,7 @@ public class PetcController {
 		return "/petc/pet_mgr_main";
 	}
 
-    // 반려동물 정보 삭제 (현재 걍 똥임)
+    // 반려동물 정보 삭제 
     @PostMapping("/delete")
     public String deletePet(Pet pet,
                             @SessionAttribute String memberid, Model m){
@@ -206,7 +207,7 @@ public class PetcController {
         }
         m.addAttribute("petList", petList);
         m.addAttribute("memberid",memberid);
-    
+
          url = "/petc/pet_mgr_main";
     	
     	return url;

@@ -1,4 +1,4 @@
-package com.yomuka.rsv;
+package com.yomuka.yomuka.rsv;
 
 //진료기록조회 조회조건
 public class RsvInqStart {	

@@ -183,6 +183,36 @@ public class PetcService {
 			e.printStackTrace();
 		}
 	}
+	
+	// 반려동물 등록 시 포인트 적립 메서드 
+	public int addPoint(String memberid) throws SQLException {
+		Connection conn = open();
+		
+		int point = 0;
+		String sql = "select point from member where memberid=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, memberid);
+		ResultSet rs = pstmt.executeQuery();
+		
+		try (conn;) {
+			while (rs.next()) {
+				point = rs.getInt("point");
+				point += 100;	//반려동물 등록 시 포인트 얼마 부여할 건지?
+				
+				sql = "update member set point=? where memberid=?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, point);
+				pstmt.setString(2, memberid);
+				
+				pstmt.executeUpdate();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return point;
+	}
 
 	// 반려동물 정보 수정 메서드
 	public void updatePetInfo(Pet pet) throws Exception {

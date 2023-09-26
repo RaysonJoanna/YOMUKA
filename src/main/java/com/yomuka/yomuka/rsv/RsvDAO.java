@@ -1,6 +1,8 @@
-package com.yomuka.rsv;
+package com.yomuka.yomuka.rsv;
 
-import com.yomuka.main.*;
+import com.yomuka.yomuka.main.*;
+import com.yomuka.yomuka.main.DTO.Member;
+
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
@@ -20,14 +22,14 @@ import org.springframework.stereotype.Component;
 public class RsvDAO {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final String JDBC_DRIVER = "org.h2.Driver";
-	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
+	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/yomuka";
 	
 	// DB 연결을 가져오는 메서드
 	public Connection open() {
 		Connection conn = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(JDBC_URL, "jwbook", "1234");
+			conn = DriverManager.getConnection(JDBC_URL, "yomuka", "1234");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

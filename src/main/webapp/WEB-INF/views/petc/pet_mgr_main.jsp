@@ -19,21 +19,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <!-- css -->
     <link href="/petc/css/pet_mgr.css" rel="stylesheet">
-    <title>YOMUKA</title>
+    <title>YOMUKA</title>  
 </head>
 <body>   
 	 <%
 	 	ArrayList<Pet> petList = (ArrayList<Pet>)request.getAttribute("petList");
-        String memberid = (String)session.getAttribute("memberid");
-        if(memberid == null){
+		String memberid = (String)session.getAttribute("memberid");
     %>
-    <script type="text/javascript">
-        alert("로그인 후 이용가능합니다.");
-		location.href("http://localhost:8085/yomuka/main");        
-    </script>
-    <%
-        }
-    %>
+	    <script type="text/javascript">
+	    	let success = '<%= (String)request.getAttribute("addS") %>';
+	    	
+	    	if(success == "success"){
+		    	alert("반려동물 등록이 완료되었습니다. 100포인트 적립되었습니다 :D");	    		
+	    	}
+	    </script>
+    	  
 	<jsp:include page="../main/Header.jsp" />
     <div class="container mb-5" > 
         <div class="col justify-content-center mt-5">
@@ -69,7 +69,7 @@
        				}
        		%>
         		<div class="card col">
-    				<a href="update?petNum=<%= petList.get(i).getPetNum()%>" class="mx-auto">
+    				<a href="/yomuka/petc/update?petNum=<%= petList.get(i).getPetNum()%>" class="mx-auto">
        				<% if(petList.get(i).getPetProfile() == null){ %>
             			<img src="/petc/img/nopet.png" class="card-img-top img-thumbnail rounded-circle mx-auto mt-5" alt="nopetphoto" style="width: 15rem; height: 15rem;">
        				<% } else { %>

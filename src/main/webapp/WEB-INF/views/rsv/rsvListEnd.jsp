@@ -20,7 +20,7 @@
 <header>  
 </header>
 <body>
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="../main/Header.jsp"></jsp:include>
 
 	<!-- 진료결과 입력 -->
 	<div class="modal fade" id="resultInput">
@@ -191,6 +191,6 @@
 		  </ul>
 		</nav>
 	</div>	
-<jsp:include page="Footer.jsp"></jsp:include>		
+<jsp:include page="../main/Footer.jsp"></jsp:include>		
 </body>
 </html>
