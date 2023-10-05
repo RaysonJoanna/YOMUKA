@@ -83,7 +83,9 @@
 		</div>
 		<button class="btn btn btn-secondary" type="submit">수정하기</button>
 		<button type="button" class="btn3 btn btn-secondary" onclick="location.href='/yomuka/main'" >뒤로가기</button>
-		</form>
+		<button type="button" class="btn3 btn btn-secondary" onclick="location.href='/OrderGudok/view'">구독 상품 확인</button>
+</form>
+		
 		
 </div>
 <jsp:include page="Footer.jsp"></jsp:include>

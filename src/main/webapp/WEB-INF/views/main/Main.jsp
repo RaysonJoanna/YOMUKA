@@ -13,6 +13,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+	
 </head>
 <body>
 <!-- 헤더 -->
@@ -46,24 +47,53 @@
                     </div>
                    </div>
                     <hr>
-                    <div class="row2" style="width: 1200px">
-							 <p> 
-							 	aid: ${loggedUser.aid} <br>
-						        아이디: ${loggedUser.memberid} <br>
-						        이름: ${loggedUser.name}<br>
-						        비밀번호: ${loggedUser.password}<br>
-						        생일 : ${loggedUser.birth}<br>
-						        성별 : ${loggedUser.gender}<br>
-						        이메일 : ${loggedUser.email }<br>
-						        주소 : ${loggedUser.address }<br>
-						        프로필사진 : ${loggedUser.profile }<br>
-						        포인트 : ${loggedUser.point}<br>
-						        관리자여부 : ${loggedUser.admin}<br>
-						        휴대폰번호 : ${loggedUser.phone}<br></p>
-						        <h2>여기는 물품구매에서 가장 많이팔린거 나오게 해보겠습니당<br></h2>
-						        <h2>지금은 세션 되는지 확인용!</h2>
-						    
-                    </div>
+                    <div class="row2 row" style="width:1188px">
+   					    <div class="col-4 ps-0 pe-0">
+					       <div class="card" style="width: 396px; height: 480px;">
+							  <img src="https://img.catpre.com/mobile/catpre/product/39/38451_detailView_01410499.png" class="card-img-top" style="height: 250px;"alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">아카나 패시피카 캣 4.5kg</h5>
+							    <a href="https://img.catpre.com/mobile/catpre/product/39/38451_desc_715147.jpg" class="card-link">설명보기</a>
+							  </div>
+							  <ul class="list-group list-group-flush">
+							    <li class="list-group-item">가격 : 63900원 </li>
+							  </ul>
+							  <div class="card-body" style="padding-bottom: 0; height: 41px;">
+							    <a href="#" class="card-link">구매하러가기</a>
+							  </div>
+							</div>
+					    </div>
+   					    <div class="col-4 ps-0 pe-0">
+					       <div class="card" style="width: 396px; height: 480px;">
+							  <img src="https://img.dogpre.com/mobile/dogpre/product/58/57547_detailView_01922506.png" class="card-img-top" style="height: 250px;"alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">로얄캐닌 미니 인도어 어덜트 8.7kg</h5>
+							    <a href="https://img.dogpre.com/web/dogpre/product/58/57547_desc_923426.jpg" class="card-link">설명보기</a>
+							  </div>
+							  <ul class="list-group list-group-flush">
+							    <li class="list-group-item">가격 : 79900원 </li>
+							  </ul>
+							  <div class="card-body" style="padding-bottom: 0; height: 41px;">
+							    <a href="#" class="card-link">구매하러가기</a>
+							  </div>
+							</div>
+					    </div>
+   					    <div class="col-4 ps-0 pe-0">
+					       <div class="card" style="width: 396px; height: 480px;">
+							  <img src="https://dochiya.co.kr/web/product/big/dnjsifjqjd_1628.jpg" class="card-img-top" style="height: 250px;"alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">스위트 프리미엄500g</h5>
+							    <a href="https://dochiya.co.kr/web/open_product/medium/super%20premium-de.jpg" class="card-link">설명보기</a>
+							  </div>
+							  <ul class="list-group list-group-flush">
+							    <li class="list-group-item">가격 : 9000원 </li>
+							  </ul>
+							  <div class="card-body" style="padding-bottom: 0; height: 41px;">
+							    <a href="#" class="card-link">구매하러가기</a>
+							  </div>
+							</div>
+					    </div>
+					</div>
                 </div>	
   <div class="main3">
   <c:if test= "${loggedUser.name == null}"> <? 로그인전 ?> 
@@ -91,18 +121,22 @@
 		    	<h5 class="card-title text-center">${loggedUser.name} 님 환영합니다.</h5>
 		    	<h6 class="text-center"> ${loggedUser.name} 님의 포인트는 ${loggedUser.point} 점 입니다.</h6>
 	    	</div>
-		    <div class="mb-3">
-			    <button type="button" class="btn1 btn btn-success" onclick="location.href='/yomuka/Logout'">로그아웃</button>			
-		    </div>
-		    <div class="mb-3">
-		    	<button type="button" class="btn1 btn btn-success" onclick="location.href='/yomuka/MyPagepage'">마이페이지</button>		 
-		    </div>
-		    <div>
-		    	<button type="button" class="btn1 btn btn-success" onclick="location.href='/yomuka/ProfilePage'">사진등록</button>
-		    </div>
+		    <div class="btn-group mb-3 mx-3" role="group" aria-label="Basic example">
+			  <button type="button" class="btn btn-success" onclick="location.href='/yomuka/Logout'">로그아웃</button>
+			  <button type="button" class="btn btn-success" onclick="location.href='/yomuka/MyPagepage'">마이페이지</button>
+			  <button type="button" class="btn btn-success" onclick="location.href='/yomuka/ProfilePage'">사진등록</button>
+			</div>
+		    <c:if test= "${loggedUser.admin == 'Y'}">
+		    	<button type="button" class="btn1 btn btn-success" onclick="location.href='/yomuka/AdminPage'">관리자용</button>
+		    </c:if>
 		  </div>
 		</div>
 	</c:if>
+		<div>
+			<a class="navbar-brand d-flex align-items-center"  onclick="location.href='/yomuka/board/notice'">
+                <img src="/main/img/board.png" alt="board" width="300">
+            </a>
+		</div>
 	</div>
 </div>
 

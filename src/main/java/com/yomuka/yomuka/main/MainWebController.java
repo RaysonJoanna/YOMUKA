@@ -1,4 +1,6 @@
-package com.yomuka.yomuka.main.controller;
+package com.yomuka.yomuka.main;
+
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.yomuka.yomuka.main.DAO.MemberDAO;
-import com.yomuka.yomuka.main.DTO.Member;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,7 +25,6 @@ public class MainWebController {
 	@GetMapping("/main")
 	public String Main() {
 		return "/main/Main";
-		//localhost:8090/test/hello 호출 의미 >> WEB-INF/views/Hello.jsp
 	}
 		
 	@GetMapping("/FindPage") // 비밀번호찾기페이지
@@ -63,7 +61,6 @@ public class MainWebController {
 	    
 	    if (member != null) {
 	    	session.setAttribute("loggedUser", member);
-	    	session.setAttribute("memberid", memberid);
 	        return "redirect:/yomuka/main";
 	    } else {
 	    	
@@ -178,5 +175,39 @@ public class MainWebController {
 	        return "redirect:/yomuka/LoginPage";
 	    }
 	}
+
 	
+	@GetMapping("/AdminPage")
+    public String getAllMembers(Model model) throws Exception {
+        List<Member> members = dao.getAll();
+        model.addAttribute("members", members);
+        return "/main/Admin";  // membersPage.jsp 파일로 포워딩
+    }
+	
+	@PostMapping("/UpdateAdmin")
+	public String updateAdmin(@RequestParam("memberId") String memberId, 
+	                          @RequestParam("admin") String admin) {
+		dao.UpdateAdmin(memberId, admin);
+	    return "redirect:/yomuka/AdminPage"; // 원하는 뷰나 경로로 리디렉트합니다.
+	}
+	
+	@PostMapping("/DelMember")
+	public String delmember(@RequestParam("aid") int aid) {
+			dao.DelMember(aid);
+		return "redirect:/yomuka/AdminPage";
+	}
+	
+	@PostMapping("/Drawal")
+	public String drawal(HttpSession session,@RequestParam("aid") int aid, RedirectAttributes redirectAttributes) {
+			dao.Drawal(aid);
+			session.invalidate();
+			redirectAttributes.addFlashAttribute("successMessage", "회원탈퇴되었습니다.");
+		return "redirect:/yomuka/main";
+	}
+	
+	// 게시판 controller 연결
+	@GetMapping("/board")
+	public String toBoard() {
+		return "redirect:/yomuka/mainboard/list";
+	}
 }

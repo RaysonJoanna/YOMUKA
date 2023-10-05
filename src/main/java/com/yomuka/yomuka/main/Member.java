@@ -1,4 +1,4 @@
-package com.yomuka.yomuka.main.DTO;
+package com.yomuka.yomuka.main;
 
 import org.springframework.web.multipart.MultipartFile;
 

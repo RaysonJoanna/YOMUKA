@@ -1,5 +1,6 @@
 package com.yomuka.yomuka.petc.controller;
 
+import com.yomuka.yomuka.main.Member;
 import com.yomuka.yomuka.petc.DTO.Pet;
 import com.yomuka.yomuka.petc.service.PetcService;
 
@@ -40,8 +41,9 @@ public class PetcController {
     // 반려동물 정보 등록 2단계 화면으로
     @GetMapping("/register2")
     public String regNext(@RequestParam("petKind") String kind, Model m,
-    					  @SessionAttribute String memberid) {
+    					  @SessionAttribute Member loggedUser) {
        
+    	String memberid = loggedUser.getMemberid();
     	List<String> breedList = new ArrayList<>();
         List<String> dieseaseList = new ArrayList<>();     
         String allPetName = "";
@@ -71,8 +73,9 @@ public class PetcController {
     @PostMapping("/add")
     public String regPet2(Pet pet,
                           @RequestParam("file") MultipartFile file,
-                          @SessionAttribute String memberid, Model m) throws SQLException {
+              			  @SessionAttribute Member loggedUser, Model m) throws SQLException {
 
+    	String memberid = loggedUser.getMemberid();
     	String kind = pet.getKind();
     	pet.setmemberid(memberid);
 	
@@ -112,7 +115,7 @@ public class PetcController {
     // 반려동물 정보 수정
     @GetMapping("/update")
     public String updatePet(@RequestParam("petNum") int petNum,
-                            @SessionAttribute String memberid, Model m) throws SQLException{
+    						@SessionAttribute Member loggedUser, Model m) throws SQLException{
     	
     	Pet pet = petS.petByNum(petNum);
     	String kind = pet.getKind();
@@ -138,8 +141,9 @@ public class PetcController {
     @PostMapping("/process-update")
     public String processUpdate(Pet pet,
             @RequestParam("file") MultipartFile file,
-            @SessionAttribute String memberid, Model m) {
+			@SessionAttribute Member loggedUser, Model m) {
     	
+    	String memberid = loggedUser.getMemberid();
 		String kind = pet.getKind();
 		
 		try {
@@ -171,7 +175,10 @@ public class PetcController {
     // 반려동물 정보 삭제 
     @PostMapping("/delete")
     public String deletePet(Pet pet,
-                            @SessionAttribute String memberid, Model m){
+    						@SessionAttribute Member loggedUser, Model m){
+    	
+    	String memberid = loggedUser.getMemberid();
+    	
         try{
             petS.deletePetInfo(pet);
         } catch (Exception e) {
@@ -194,9 +201,9 @@ public class PetcController {
 
     // 반려동물 정보 가져오기
     @GetMapping
-    public String getPetInfo(@SessionAttribute String memberid, Model m){
+    public String getPetInfo(@SessionAttribute Member loggedUser, Model m){
     	String url = "";
-    	
+    	String memberid = loggedUser.getMemberid();
 
         List<Pet> petList = null;   // 전체 리스트
 

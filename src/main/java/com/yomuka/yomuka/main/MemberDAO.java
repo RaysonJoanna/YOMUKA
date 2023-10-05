@@ -1,16 +1,16 @@
-package com.yomuka.yomuka.main.DAO;
+package com.yomuka.yomuka.main;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.yomuka.yomuka.main.DTO.Member;
 
 @Component
 public class MemberDAO {
@@ -85,7 +85,6 @@ public class MemberDAO {
 	         pstmt.setString(8, m.getPhone());
 	         pstmt.executeUpdate();
 	      } catch (Exception e) {
-	         // TODO Auto-generated catch block
 	         e.printStackTrace();
 	      } 
       }	close();
@@ -196,7 +195,7 @@ public class MemberDAO {
 			if (imgFile != null && !imgFile.isEmpty()) {
 	            File dest = new File(fdir + "/" + imgFile.getOriginalFilename());
 	            imgFile.transferTo(dest);
-	            profile = "http://localhost:8085/main/img/" + dest.getName();
+	            profile = "http://localhost:8090/main/img/" + dest.getName();
 	        }
 			pstmt = conn.prepareStatement(sql);
 			
@@ -214,6 +213,90 @@ public class MemberDAO {
 			close();
 		} return profileC;
 	}
+	
+	public List<Member> getAll() throws Exception {
+	    open();
+	    List<Member> members = new ArrayList<>();
+
+	    String sql = "SELECT aid, memberid, name, admin FROM member";
+
+	    try {
+	        pstmt = conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            Member m = new Member();
+	            m.setAid(rs.getInt("aid"));
+	            m.setMemberid(rs.getString("memberid"));
+	            m.setName(rs.getString("name"));
+	            m.setAdmin(rs.getString("admin"));
+	            members.add(m);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        close();
+	    }
+
+	    return members;
+	}
+	// 관리자 권한 부여
+	public String UpdateAdmin(String memberid , String admin) {
+		open();
+		String sql = "UPDATE member set admin = ? where memberid = ? ";
+		
+		try {
+			Member m = new Member();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, admin);
+			pstmt.setString(2,memberid);
+			pstmt.executeUpdate();
+		
+			if(m.getAdmin() == "N") {
+				m.setAdmin("Y");
+			}
+			else {
+				m.setAdmin("N");
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return null;
+	}
+	// 계정삭제(관리자삭제버전)
+	
+	public String DelMember(int aid) {
+		open();
+		String sql = "delete from member where aid =?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, aid);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}return null;
+	}
+	
+	public String Drawal(int aid) {
+		open();
+		String sql = "delete from member where aid =?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, aid);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}return null;
+	}
 }
+
 
 

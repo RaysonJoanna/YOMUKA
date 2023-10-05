@@ -28,8 +28,7 @@
 	margin-left : 0px;
 }
 .row2{
-	height: 468.5px;
-	background-color: #e8e8e8;
+	height: 480px;
 	margin-left : 0px;
 }
 .main2{
@@ -67,6 +66,7 @@
 	margin-left: 30px;
 }
 
-.card{
-	width: 340px;
+.main3 .card {
+    width: 340px;
 }
+

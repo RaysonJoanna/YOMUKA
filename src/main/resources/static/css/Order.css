@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+*{
+font-family: 'Gowun Dodum', sans-serif;
+}
+
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.b-example-divider {
+	width: 100%;
+	height: 3rem;
+	background-color: rgba(0, 0, 0, .1);
+	border: solid rgba(0, 0, 0, .15);
+	border-width: 1px 0;
+	box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+	flex-shrink: 0;
+	width: 1.5rem;
+	height: 100vh;
+}
+
+.bi {
+	vertical-align: -.125em;
+	fill: currentColor;
+}
+
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+
+}
+
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+.common {
+	margin-left: 60px;
+	margin-right: 60px;
+	padding-left: 30px;
+}
+
+.center {
+	text-align: center;
+}
+
+.card-default {
+	width: 400px;
+	height: 400px;
+	padding: 0;
+}
+
+.card-image {
+	height: 250px;
+}
+
+
+.dog {
+	display: none;
+}
+
+.cat {
+	display: none;
+}
+
+.small {
+	display: none;
+}
+
+.mind-full {
+	display: none;
+}
+
+.a-order {
+	text-decoration-line: none;
+	color: black;
+	font-size: 17px;
+
+}
+
+.card-margin {
+	margin-bottom: 20px;
+}
+
+.jjim {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -25px 0 0 -25px
+}
+.goods{
+	border:solid 3px #FFEFEF;
+	text-align:center;
+	padding: 20px;
+	margin: 20px 20px 0px 20px;
+}
+.goods_table{
+		list-style: none;
+}
+
+#top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  width:50px;
+}
+
+.button-right{
+	 float: right;
+}
+.gudok_img{
+	height: 150px;
+}

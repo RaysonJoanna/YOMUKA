@@ -35,7 +35,7 @@
     background-color: #FCC8C8;
 }
 
-.dropdown-menu{
+#navbarNav .dropdown-menu{
 	background-color: #FFEFEF;
 	width: 458.48px;
 	text-align: center;
@@ -51,4 +51,9 @@
 html{
 	margin-right: 60px;
 	margin-left: 60px;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
 }

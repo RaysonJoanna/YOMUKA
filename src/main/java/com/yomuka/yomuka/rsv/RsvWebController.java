@@ -1,6 +1,5 @@
 package com.yomuka.yomuka.rsv;
 
-import com.yomuka.yomuka.main.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -11,18 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yomuka.yomuka.main.DTO.Member;
+import com.yomuka.yomuka.main.Member;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("yomuka/rsv")
+@RequestMapping("/yomuka/rsv")
 public class RsvWebController {
 		
 	final RsvDAO dao;	
@@ -154,7 +152,7 @@ public class RsvWebController {
 			m.addAttribute("error", "예약현황 조회가 정상적으로 처리되지 않았습니다!!");			
 		}
 		
-		return "rsvListStart";
+		return "/rsv/rsvListStart";
 	}
 	
 	//진료결과 입력
@@ -246,7 +244,7 @@ public class RsvWebController {
 			m.addAttribute("error", "진료기록조회가 정상적으로 처리되지 않았습니다!!");			
 		}
 		
-		return "rsvListEnd";
+		return "/rsv/rsvListEnd";
 	}
 	
 	

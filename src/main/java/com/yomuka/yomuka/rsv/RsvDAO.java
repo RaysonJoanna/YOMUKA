@@ -1,7 +1,7 @@
 package com.yomuka.yomuka.rsv;
 
 import com.yomuka.yomuka.main.*;
-import com.yomuka.yomuka.main.DTO.Member;
+import com.yomuka.yomuka.main.Member;
 
 import org.slf4j.Logger;
 
