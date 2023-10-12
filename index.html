@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 부트스트랩5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- 폰트어썸 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+    <title>YOMUKA</title>
+    <style>
+        *{ 
+            margin:0; font-family: 'Noto Sans KR', sans-serif;
+        }
+        #reg, #log, #recipeSearch, #howMuch, #history, #admin {
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+        }
+
+        hr {
+            margin: 50px 0;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center mb-5 mt-5">
+        <img src="img/yomuka_web.png" alt="yomuka_web" style="width:80%; max-width: 1600px;">
+    </div>
+    <div class="p-4 justify-content-center " style="margin-top: 100px; text-align: center;">
+        <h1 class="mt-5 pt-5" style="border-top: 2px solid #FCC8C8;">프로젝트 소개</h1>
+        <div style="border-bottom: 2px solid #FCC8C8;" class="pb-4">
+            <p class="mt-5 fs-5">기간 : 2023.08.28~10.12</p>
+            <p class="fs-5">목적 : 자바프로젝트를 웹으로 개발. 반려동물 종합 케어 서비스</p>
+            <p class="fs-5">개발 인원 : 5명</p>
+            <p class="fs-5">담당 파트 : 반려동물 정보 관리</p>
+        </div>
+        <div class="mb-5 text-center" style="margin-top: 150px;">
+            <h1 class="mb-5">프로젝트 설계</h1>
+            <img src="img/yomuka_usediagram.png" alt="mos_diagram" class="mx-auto" style="width: 80%;max-width:800px;">
+        </div>
+        <div>
+            <p class="h1 mb-5 pt-5">반려동물 정보 관리</p>
+
+            <p class="h5 text-center mb-3" id="reg" onClick="here(event)">1. 내 반려동물 조회<i class="fas fa-mouse-pointer" id="rclick" style="margin-left: 10px;"></i></p>
+            <div id="register" style="display: none;">
+                <div style="width:900px; margin: 0 auto;">
+                    <h5 class="mt-5 text-center" style="color:green">youmka/petc</h5>
+                    <img src="img/s1.PNG" alt="s1" class="mt-5 img-fluid">
+                    <p class="mt-5">세션의 회원 아이디 정보를 가져와 데이터베이스에서 조회해 반려동물 정보 반환</p>
+
+                    <h5 class="mt-5 text-center" style="color:green">yomuka/petc</h5>
+                    <img src="img/s2.PNG" alt="s2" class="mt-5 img-fluid">
+                    <p class="mt-5">1. 반려동물 수정 및 삭제</p>
+                    <p class="mb-5">2. 반려동물 등록</p>
+                </div>
+                <button class="btn btn-lg btn-primary mb-5" id="regclose" onClick="jeob(event)">접기</button>
+            </div>
+
+            <p class="h5 text-center mb-3" id="log" onClick="here(event)">2. 반려동물 정보 등록<i class="fas fa-mouse-pointer" id="lclick" style="margin-left: 10px;"></i></p>
+            <div id="login" style="display: none;">
+                <div style="width:900px; margin: 0 auto;">
+
+                    <h5 class="mt-5 text-center" style="color:green">yomuka/petc/register1</h5>
+                    <img src="img/s3.PNG" alt="s3" class="mt-5 img-fluid">
+                    <p class="mt-5">반려동물 대분류 선택</p>
+
+                    <h5 class="mt-5 text-center pt-5" style="color:green">yomuka/petc/register2</h5>
+                    <img src="img/s4.PNG" alt="s4" class="mt-5 img-fluid">
+                    <p class="mt-5">
+                        1. 반려동물 사진 등록<br>
+                        2. 이름 입력창<br>
+                        3. 나이, 나이 단위 입력창<br>
+                        4. 몸무게 입력창<br>
+                        5. 중성화 여부 입력<br>
+                        6. 주요질병 여부 입력창<br>
+                        7. 품종 입력창<br>
+                        8. 유효성 검사 후, 반려동물 등록 후 메인 페이지로 이동</p>
+                </div>
+                <button class="btn btn-lg btn-primary mb-5" id="logclose" onClick="jeob(event)">접기</button>
+            </div>
+
+            <p class="h5 text-center mb-3" id="recipeSearch" onClick="here(event)">3. 반려동물 정보 수정 / 삭제<i class="fas fa-mouse-pointer" id="rsclick" style="margin-left: 10px;"></i></p>
+            <div id="search" style="display: none;">
+                <div style="width:900px; margin: 0 auto;">
+                    <h5 class="mt-5 text-center" style="color:green">yomuka/petc/update?petNum=?</h5>
+                    <img src="img/s5.png" alt="s5" class="mt-5 img-fluid">
+                    <p class="mt-5">
+                        1. 데이터베이스에 저장되어 있는 기존 정보<br>
+                        2. 2번 버튼 action시 해당 반려동물 삭제<br>
+                        3. 데이터 작성 후 3번 버튼 action시 반려동물 데이터 수정
+                    </p>
+                    
+                </div>
+                <button class="btn btn-lg btn-primary mb-5" id="searchclose" onClick="jeob(event)">접기</button>
+            </div>
+        </div>
+        <div class="mb-5 text-center" style="margin-top: 150px;">
+            <h1 class="mb-5">사용기술 및 도구</h1>
+            <img src="img/tools.png" alt="tools" class="mx-auto" style="width: 80%;max-width:800px;">
+            <div class="d-flex justify-content-center">
+                <div class="text-start">
+                    <p class="fs-5 mt-5">Databse</p>
+                    <p class="ms-5">- H2 Database</p>
+                    <p class="fs-5">Web</p>
+                    <p class="ms-5">- HTML5, CSS3, BootStrap5, Maven, Apache-Tomcat</p>
+                    <p class="fs-5">Tool</p>
+                    <p class="ms-5">- Visual Studio Code, Eclipse</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="https://github.com/RaysonJoanna/YOMUKA" class="d-flex justify-content-center mt-5"><img src="img/yomuka_webCode.png" alt="보러가기" style="width:40%; max-width: 800px;"></a>
+        </div>
+    </div>
+    <script>
+        function here(e) {
+            let id = e.target.id;
+            let div = $(`#${id}`).next()[0].id;
+            let pointer = $(`#${id}`).children().first()[0].id;
+
+            if($(`#${div}`).css('display') == 'none') {
+                $(`#${div}`).show();
+                $(`#${pointer}`).css("color","#c7c7c7");
+            } else {
+                $(`#${div}`).hide();
+                $(`#${pointer}`).css("color","#1E3050");
+            }
+        }
+
+        function jeob(e){
+            let self = e.target.id;
+            let mother = $(`#${self}`).parent()[0].id;
+            let aunt = $(`#${mother}`).prev()[0].id;
+            console.log(aunt);
+
+
+            $(`#${self}`).parent().css('display','none');
+            $(`#${aunt}`).children().css("color","#1E3050");
+        }
+    </script>
+</body>
+</html>
